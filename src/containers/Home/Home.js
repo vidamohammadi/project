@@ -11,7 +11,7 @@ const Home = (props) => {
     return (
         <div>
             <h2>{props.id}</h2>
-            <Header />
+            <Header id={id} />
             <List id={id}/>
             <Search />
         </div>

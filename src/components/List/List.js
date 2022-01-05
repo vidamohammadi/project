@@ -10,7 +10,8 @@ const List = (props) => {
 
     const [user, setUser] = useState({ userInfo: [] })
     const [show, setShow] = useState(false)
-    const [modal, setModel] = useState('')
+    const [modal, setModal] = useState('')
+    const [edit, setEdit] = useState('')
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -24,16 +25,26 @@ const List = (props) => {
             })
     }, [])
 
-    const selectItemHandler = (index) => {
+    const selectItemHandler = (index , id) => {
         setShow(!show)
-        setModel(index)
+        setModal(index)
+        setEdit(id)
+    }
+    
+    const changeHandler = () => {
+        const index = edit
+        console.log(index)
+        console.log(user)
+        setUser({
+            userInfo[index] : 'name'
+        })
     }
 
     const close = () => {
         setShow(false)
     }
 
-    const edit = () =>{
+    const editHandler = () =>{
         console.log(modal)
         console.log(user.userInfo)
     }
@@ -41,34 +52,34 @@ const List = (props) => {
     return (
         <div className='list'>
             {
-                show ? <Modal show={show} modalClose={close} edit={edit} cancel={close}>
-                    <Input type="text" value={modal} placeholder={modal} onChange={() =>{} }/>
+                show ? <Modal show={show} modalClose={close} edit={editHandler} cancel={close}>
+                    <Input type="text" value={modal} placeholder={modal} onChange={changeHandler}/>
                 </Modal> : null
             }
             <UserItem
                 title='your name'
                 body={user.userInfo.name}
-                click={(index) => selectItemHandler(user.userInfo.name)}
+                click={(index , id) => selectItemHandler(user.userInfo.name , "name")}
             />
             <UserItem
                 title='your id'
                 body={user.userInfo.id}
-                click={(index) => selectItemHandler(user.userInfo.id)}
+                click={(index , id) => selectItemHandler(user.userInfo.id , "id")}
             />
             <UserItem
                 title='your username'
                 body={user.userInfo.username}
-                click={(index) => selectItemHandler(user.userInfo.username)}
+                click={(index , id) => selectItemHandler(user.userInfo.username , "username")}
             />
             <UserItem
                 title='your email'
                 body={user.userInfo.email}
-                click={(index) => selectItemHandler(user.userInfo.email)}
+                click={(index , id) => selectItemHandler(user.userInfo.email , "email")}
             />
             <UserItem
                 title='your phone'
                 body={user.userInfo.phone}
-                click={(index) => selectItemHandler(user.userInfo.phone)}
+                click={(index , id) => selectItemHandler(user.userInfo.phone , "phone")}
             />
         </div>
     )
