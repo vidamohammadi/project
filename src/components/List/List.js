@@ -35,9 +35,7 @@ const List = (props) => {
         const index = edit
         console.log(index)
         console.log(user)
-        setUser({
-            userInfo[index] : 'name'
-        })
+        
     }
 
     const close = () => {

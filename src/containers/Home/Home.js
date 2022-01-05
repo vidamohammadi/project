@@ -13,7 +13,7 @@ const Home = (props) => {
             <h2>{props.id}</h2>
             <Header id={id} />
             <List id={id}/>
-            <Search />
+            {/* <Search /> */}
         </div>
     )
 }
