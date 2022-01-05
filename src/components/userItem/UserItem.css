@@ -1,0 +1,17 @@
+.user{
+    margin: 20px;
+    border: 1px solid #aa0d0d;
+    padding: 10px;
+    background: #a839393a;
+    border-radius: 10px;
+    height: 200px;  
+    width: 260px;
+}
+
+.user h2{
+    height: 50px;
+}
+
+.user p {
+    font-size: 8pt;
+}

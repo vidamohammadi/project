@@ -1,0 +1,24 @@
+.btn{
+    font: inherit;
+    color: #aa0d0d;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background: transparent;
+    outline: none;
+    background: #a8393970;
+    width: 80px;
+    }
+
+.login{
+    width: 80px;
+}
+
+.edit{
+    width: 80px;
+    background: #fffcfcc7;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
